@@ -3,11 +3,11 @@ package repository
 import "go.mongodb.org/mongo-driver/mongo"
 
 type Repository struct {
-	client *mongo.Client
+	edocs *mongo.Collection
 }
 
 func NewRepository(client *mongo.Client) *Repository {
 	return &Repository{
-		client: client,
+		edocs: client.Database("core").Collection("edocuments"),
 	}
 }
